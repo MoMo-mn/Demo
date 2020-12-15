@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 public class UsersController {
     @Autowired
     private UserService userService;
+    private int a;
 
 
     @RequestMapping("getUser/{uid}")
