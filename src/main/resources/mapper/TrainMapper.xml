@@ -2,21 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.TrainMapper">
 
-  <resultMap id="TrainResultMap" type="com.example.demo.entity.Trainings">
-    <result column="trainingId" jdbcType="VARCHAR" property="trainingId" />
-    <result column="trainingName" jdbcType="VARCHAR" property="trainingName" />
-    <result column="trainerName" jdbcType="VARCHAR" property="trainerName" />
-    <result column="yearsOfExperence" jdbcType="INTEGER" property="yearsOfExperence" />
-    <result column="flag" jdbcType="BOOLEAN" property="flag" />
-    <result column="avcRating" jdbcType="INTEGER" property="avcRating" />
-    <result column="delivered" jdbcType="VARCHAR" property="delivered" />
-    <result column="price" jdbcType="DOUBLE" property="price" />
-    <result column="propose" jdbcType="BOOLEAN" property="propose" />
-    <result column="datetime" jdbcType="DATE" property="datetime" />
-  </resultMap>
-
-  <select id="getTraining" resultType="com.example.demo.entity.Trainings">
+    <resultMap id="TrainResultMap" type="com.example.demo.entity.Trainings">
+        <result column="trainingId" jdbcType="VARCHAR" property="trainingId" />
+        <result column="trainingName" jdbcType="VARCHAR" property="trainingName" />
+        <result column="trainerName" jdbcType="VARCHAR" property="trainerName" />
+        <result column="yearsOfExperence" jdbcType="INTEGER" property="yearsOfExperence" />
+        <result column="flag" jdbcType="BOOLEAN" property="flag" />
+        <result column="avcRating" jdbcType="INTEGER" property="avcRating" />
+        <result column="delivered" jdbcType="VARCHAR" property="delivered" />
+        <result column="price" jdbcType="DOUBLE" property="price" />
+        <result column="propose" jdbcType="BOOLEAN" property="propose" />
+        <result column="datetime" jdbcType="TIMESTAMP" property="datetime" />
+    </resultMap>
+    <select id="getTrainingAll" resultType="com.example.demo.entity.Trainings">
+        select * from trainings
+    </select>
+    <select id="getTraining" resultType="com.example.demo.entity.Trainings">
         select * from trainings where trainingName = #{trainingName}
+    </select>
+    <select id="getTrainingFlag" resultType="com.example.demo.entity.Trainings">
+        select * from trainings where flag = 1
+    </select>
+    <select id="getTrainingPropose" resultType="com.example.demo.entity.Trainings">
+        select * from trainings where propose = 1
     </select>
 
 </mapper>

@@ -11,11 +11,14 @@ import org.springframework.web.bind.annotation.*;
 public class UsersController {
     @Autowired
     private UserService userService;
-    private int a;
 
 
-    @RequestMapping("getUser/{uid}")
+    @GetMapping("getUser/{uid}")
     public String GetUser(@PathVariable String uid){
         return userService.Sel(uid).toString();
+    }
+    @RequestMapping(value = "login/{username}/{password}",method = RequestMethod.GET)
+    public boolean login(@PathVariable("username") String username,@PathVariable("password") String password){
+        return userService.login(username,password);
     }
 }

@@ -15,5 +15,13 @@ public class UserService {
     public Users Sel(String uid){
         return userMapper.Sel(uid);
     }
+    public boolean login(String username,String password){
+               Users users = userMapper.findAll(username,password);
+               if(users==null){
+                  return false;
+
+               }
+               return true;
+    }
 
 }

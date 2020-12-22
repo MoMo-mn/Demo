@@ -4,8 +4,8 @@
 
   <resultMap id="BaseResultMap" type="com.example.demo.entity.Users">
     <result column="uid" jdbcType="VARCHAR" property="uid" />
-    <result column="userName" jdbcType="VARCHAR" property="userName" />
-    <result column="passWord" jdbcType="VARCHAR" property="passWord" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="email" jdbcType="VARCHAR" property="email" />
   </resultMap>
 
@@ -13,4 +13,7 @@
         select * from users where uid = #{uid}
     </select>
 
+  <select id="findAll" resultType="com.example.demo.entity.Users">
+        select * from users where username =#{username} and password = #{password}
+    </select>
 </mapper>

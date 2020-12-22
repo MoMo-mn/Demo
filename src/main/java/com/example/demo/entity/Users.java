@@ -1,12 +1,21 @@
 package com.example.demo.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "users")
 public class Users {
+    @Id
+    @Column(name = "`uid`", length = 64)
     private String uid;
-
+    @Column(name = "`username`", length = 50)
     private String username;
-
+    @Column(name = "`password`", length = 80)
     private String password;
-
+    @Column(name = "`email`", length = 100)
     private String email;
 
     public String getUid() {

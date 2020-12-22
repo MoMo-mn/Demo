@@ -1,18 +1,59 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 import java.util.Date;
 
+/*@Entity
+@Table(name = "trainings")*/
 public class Trainings {
-    private String trainingId;
-    private String trainingName;
-    private String trainerName;
-    private Integer yearsOfExperence;
-    private Boolean flag;
-    private Integer avcRating;
-    private String delivered;
-    private double price;
-    private Boolean propose;
-    private Date datetime;
+  /*  @Id
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    @Column(name = "`trainingId`", length = 64)
+    public  String trainingId;
+    @Column(name = "`trainingName`", length = 64)
+    public  String trainingName;
+    @Column(name = "`trainerName`", length = 30)
+    public  String trainerName;
+    @Column(name = "yearsOfExperence", length = 11)
+    public  Integer yearsOfExperence;
+    @Column(name = "`flag`", length = 1)
+    public  Boolean flag;
+    @Column(name = "avcRating", length = 11)
+    public  Integer avcRating;
+    @Column(name = "`delivered`", length = 30)
+    public  String delivered;
+    @Column(name = "price", length = 30)
+    public  double price;
+    @Column(name = "`propose`", length = 1)
+    public  Boolean propose;
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSZ", timezone = "GMT+8")
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "`datetime`")
+    public  Date datetime;*/
+
+    private  String trainingId;
+
+    private  String trainingName;
+
+    private  String trainerName;
+
+    private  Integer yearsOfExperence;
+
+    private  Boolean flag;
+
+    private  Integer avcRating;
+
+    private  String delivered;
+
+    private  double price;
+
+    private  Boolean propose;
+
+    private  Date datetime;
 
     public String getTrainingId() {
         return trainingId;
