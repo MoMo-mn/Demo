@@ -27,24 +27,24 @@ public class TrainsController {
     private TrainService trainService;
 
     @ApiOperation(value="课程查询", notes="根据课程名称")
-    @GetMapping(value = "getTraining/{trainingName}")
-    public String GetTraining(@PathVariable String trainingName){
-        return trainService.getTraining(trainingName).toString();
+    @GetMapping(value = "getTraining/{uid}/{trainingName}")
+    public Trainings GetTraining(@PathVariable String uid,@PathVariable String trainingName){
+        return trainService.getTraining(uid,trainingName);
     }
-    @ApiOperation(value="所有课程查询", notes="课程列表")
-    @GetMapping(value = "getTrainingAll")
-    public List<Trainings> GetTrainingAll(){
-        return trainService.getTrainingAll();
+    @ApiOperation(value="所有课程查询", notes="Search Trainings")
+    @GetMapping(value = "getTrainingAll/{uid}")
+    public List<Trainings> GetTrainingAll(@PathVariable String uid){
+        return trainService.getTrainingAll(uid);
     }
-    @ApiOperation(value="课程查询", notes="根据课程名称")
-    @GetMapping(value = "getTrainingFlag")
-    public List<Trainings> GetTrainingFlag(){
-        return trainService.getTrainingFlag();
+    @ApiOperation(value="课程查询", notes="Completed Trainings")
+    @GetMapping(value = "getTrainingFlag/{uid}")
+    public List<Trainings> GetTrainingFlag(@PathVariable String uid){
+        return trainService.getTrainingFlag(uid);
     }
-    @ApiOperation(value="课程查询", notes="根据课程名称")
-    @GetMapping(value = "getTrainingPropose")
-    public List<Trainings> GetTrainingPropose(){
-        return trainService.getTrainingPropose();
+    @ApiOperation(value="课程查询", notes="Current Trainings")
+    @GetMapping(value = "getTrainingPropose/{uid}")
+    public List<Trainings> GetTrainingPropose(@PathVariable String uid){
+        return trainService.getTrainingPropose(uid);
     }
 
 }

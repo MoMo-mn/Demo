@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 
+import com.example.demo.entity.Users;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +15,8 @@ public class UsersController {
 
 
     @GetMapping("getUser/{uid}")
-    public String GetUser(@PathVariable String uid){
-        return userService.Sel(uid).toString();
+    public Users GetUser(@PathVariable String uid){
+        return userService.Sel(uid);
     }
     @RequestMapping(value = "login/{username}/{password}",method = RequestMethod.GET)
     public boolean login(@PathVariable("username") String username,@PathVariable("password") String password){

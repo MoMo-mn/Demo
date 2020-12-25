@@ -11,20 +11,20 @@ public class TrainService {
     @Autowired
     private TrainMapper trainMapper;
 
-    public List<Trainings>  getTrainingAll(){
-        return trainMapper.getTrainingAll();
+    public List<Trainings>  getTrainingAll(String uid){
+        return trainMapper.getTrainingAll(uid);
     }
 
-    public Trainings getTraining(String trainingName){
-        return trainMapper.getTraining(trainingName);
+    public Trainings getTraining(String uid,String trainingName){
+        return trainMapper.getTraining(uid,trainingName);
     }
 
-    public List<Trainings>  getTrainingFlag(){
-        return trainMapper.getTrainingFlag();
+    public List<Trainings>  getTrainingFlag(String uid){
+        return trainMapper.getTrainingFlag(uid);
     }
 
-    public List<Trainings>  getTrainingPropose(){
-        return trainMapper.getTrainingPropose();
+    public List<Trainings>  getTrainingPropose(String uid){
+        return trainMapper.getTrainingPropose(uid);
     }
 
 }

@@ -7,10 +7,10 @@ import java.util.List;
 
 @Repository
 public interface TrainMapper {
-   Trainings getTraining(String trainingName);
-   List<Trainings> getTrainingAll();
-   List<Trainings> getTrainingFlag();
-   List<Trainings> getTrainingPropose();
+   Trainings getTraining(String uid,String trainingName);
+   List<Trainings> getTrainingAll(String uid);
+   List<Trainings> getTrainingFlag(String uid);
+   List<Trainings> getTrainingPropose(String uid);
     /*//int insert(Trainings trainings);
     //int updateById(Trainings trainings);
     int deleteById(String trainingId);

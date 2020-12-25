@@ -7,24 +7,49 @@
         <result column="trainingName" jdbcType="VARCHAR" property="trainingName" />
         <result column="trainerName" jdbcType="VARCHAR" property="trainerName" />
         <result column="yearsOfExperence" jdbcType="INTEGER" property="yearsOfExperence" />
-        <result column="flag" jdbcType="BOOLEAN" property="flag" />
         <result column="avcRating" jdbcType="INTEGER" property="avcRating" />
         <result column="delivered" jdbcType="VARCHAR" property="delivered" />
         <result column="price" jdbcType="DOUBLE" property="price" />
-        <result column="propose" jdbcType="BOOLEAN" property="propose" />
         <result column="datetime" jdbcType="TIMESTAMP" property="datetime" />
     </resultMap>
     <select id="getTrainingAll" resultType="com.example.demo.entity.Trainings">
-        select * from trainings
+select a.* ,b.uid,b.propose,b.flag from trainings a
+left outer join
+(select b1.uid,b1.trainingId,b1.propose,b1.flag from relationship b1
+left outer join
+users b2
+on  b1.uid = b2.uid where b1.uid=#{uid}) b
+on a.trainingId = b.trainingId
     </select>
     <select id="getTraining" resultType="com.example.demo.entity.Trainings">
-        select * from trainings where trainingName = #{trainingName}
+       select a.* ,b.uid,b.propose,b.flag from trainings a
+left outer join
+(select b1.uid,b1.trainingId,b1.propose,b1.flag from relationship b1
+left outer join
+users b2
+on  b1.uid = b2.uid where b1.uid=#{uid}) b
+on a.trainingId = b.trainingId
+ where trainingName = #{trainingName}
     </select>
     <select id="getTrainingFlag" resultType="com.example.demo.entity.Trainings">
-        select * from trainings where flag = 1
+      select a.* ,b.uid,b.propose,b.flag from trainings a
+left outer join
+(select b1.uid,b1.trainingId,b1.propose,b1.flag from relationship b1
+left outer join
+users b2
+on  b1.uid = b2.uid ) b
+on a.trainingId = b.trainingId
+where b.uid=#{uid} and b.flag=1
     </select>
     <select id="getTrainingPropose" resultType="com.example.demo.entity.Trainings">
-        select * from trainings where propose = 1
+          select a.* ,b.uid,b.propose,b.flag from trainings a
+left outer join
+(select b1.uid,b1.trainingId,b1.propose,b1.flag from relationship b1
+left outer join
+users b2
+on  b1.uid = b2.uid ) b
+on a.trainingId = b.trainingId
+where b.uid=#{uid} and b.propose=1
     </select>
 
 </mapper>

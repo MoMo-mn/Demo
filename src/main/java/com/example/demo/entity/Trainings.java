@@ -8,7 +8,7 @@ import java.util.Date;
 
 /*@Entity
 @Table(name = "trainings")*/
-public class Trainings {
+public class Trainings extends Relationship{
   /*  @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
@@ -43,17 +43,32 @@ public class Trainings {
 
     private  Integer yearsOfExperence;
 
-    private  Boolean flag;
-
     private  Integer avcRating;
 
     private  String delivered;
 
     private  double price;
 
-    private  Boolean propose;
-
     private  Date datetime;
+
+    /*private Users users;
+    private Relationship relationship;
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
+    }
+
+    public Relationship getRelationship() {
+        return relationship;
+    }
+
+    public void setRelationship(Relationship relationship) {
+        this.relationship = relationship;
+    }*/
 
     public String getTrainingId() {
         return trainingId;
@@ -87,14 +102,6 @@ public class Trainings {
         this.yearsOfExperence = yearsOfExperence;
     }
 
-    public Boolean getFlag() {
-        return flag;
-    }
-
-    public void setFlag(Boolean flag) {
-        this.flag = flag;
-    }
-
     public Integer getAvcRating() {
         return avcRating;
     }
@@ -119,14 +126,6 @@ public class Trainings {
         this.price = price;
     }
 
-    public Boolean getPropose() {
-        return propose;
-    }
-
-    public void setPropose(Boolean propose) {
-        this.propose = propose;
-    }
-
     public Date getDatetime() {
         return datetime;
     }
@@ -142,11 +141,9 @@ public class Trainings {
                 ", trainingName='" + trainingName + '\'' +
                 ", trainerName='" + trainerName + '\'' +
                 ", yearsOfExperence=" + yearsOfExperence +
-                ", flag=" + flag +
                 ", avcRating=" + avcRating +
                 ", delivered='" + delivered + '\'' +
                 ", price=" + price +
-                ", propose=" + propose +
                 ", datetime=" + datetime +
                 '}';
     }
